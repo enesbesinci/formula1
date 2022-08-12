@@ -1,0 +1,285 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+data2019 = pd.read_csv("formula1_2019season_raceResults.csv")
+data2019.columns = [x.split()[0] + "_" + x.split()[1] if len(x.split())>1 else x for x in data2019.columns]
+
+data2020 = pd.read_csv("formula1_2020season_raceResults.csv")
+data2020.columns = [x.split()[0] + "_" + x.split()[1] if len(x.split())>1 else x for x in data2020.columns]
+
+data2021 = pd.read_csv("formula1_2021season_raceResults.csv")
+data2021.columns = [x.split()[0] + "_" + x.split()[1] if len(x.split())>1 else x for x in data2021.columns]
+
+data2022 = pd.read_csv("formula1_2022season_raceResults.csv")
+data2022.columns = [x.split()[0] + "_" + x.split()[1] if len(x.split())>1 else x for x in data2022.columns]
+
+year = input("hangi yıla ait verileri öğrenmek istiyorsunuz? (2019,2020,2021,2022): ")
+
+if year == "2019":
+    
+    ask = input("Kaç Sürücünün Sonuçlarını Öğrenmek İstiyorsunuz (Maks 2) : ")
+    
+    if ask == "1":
+        
+        driver1 = input("Sürücü Adınızı Giriniz: ")
+        result2019 = data2019[data2019.Driver == driver1]
+        
+        races = np.arange(1,22)
+        points = np.arange(0,27)
+
+
+        plt.plot(races,result2019.Points,'-o', color = "red" ,label = "Yarış Sonuçları",linewidth=2)
+        plt.plot(races,result2019.Starting_Grid,'-o', color = "blue" ,label = "Sıralama Sonuçları",linewidth=2)
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races)
+        plt.yticks(points)
+
+        plt.show()
+    if ask == "2":
+        
+        driver1 = input("1. Sürücünün Adınızı Giriniz: ")
+        driver2 = input("2. Sürücünün Adınızı Giriniz: ")
+        
+        result2019 = data2019[data2019.Driver == driver1]
+        result22019 = data2019[data2019.Driver == driver2]
+        
+        races = np.arange(1,22)
+        points = np.arange(0,27)
+
+        plt.subplot(2,1,1)
+        plt.plot(races,result2019.Points,'-o', color = "red" ,label = "1. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races,result2019.Starting_Grid,'-o', color = "blue" ,label = "1. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races)
+        plt.yticks(points)
+        plt.show()
+        
+        
+        plt.subplot(2,1,2)
+        plt.plot(races,result22019.Points,'-o', color = "red" ,label = "2. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races,result22019.Starting_Grid,'-o', color = "blue" ,label = "2. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races)
+        plt.yticks(points)
+        plt.show()
+        
+if year == "2020":
+    
+    ask = input("Kaç Sürücünün Sonuçlarını Öğrenmek İstiyorsunuz (Maks 2) : ")
+    
+    if ask == "1":
+        
+        driver1 = input("Sürücü Adınızı Giriniz: ")
+        
+        result2020 = data2020[data2020.Driver == driver1]
+        
+        races2 = np.arange(1,18)
+        points2 = np.arange(0,27)
+
+
+        plt.plot(races2,result2020.Points,'-o', color = "red" ,label = "Yarış Sonuçları",linewidth=2)
+        plt.plot(races2,result2020.Starting_Grid,'-o', color = "blue" ,label = "Sıralama Sonuçları",linewidth=2)
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races2)
+        plt.yticks(points2)
+
+        plt.show()
+    if ask == "2":
+        
+        driver1 = input("1. Sürücünün Adınızı Giriniz: ")
+        driver2 = input("2. Sürücünün Adınızı Giriniz: ")
+        
+        result2020 = data2020[data2020.Driver == driver1]
+        result22020 = data2020[data2020.Driver == driver2]
+        
+        races2 = np.arange(1,18)
+        points2 = np.arange(0,27)
+
+        plt.subplot(2,1,1)
+        plt.plot(races2,result2020.Points,'-o', color = "red" ,label = "1. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races2,result2020.Starting_Grid,'-o', color = "blue" ,label = "1. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races2)
+        plt.yticks(points2)
+        plt.show()
+        
+        
+        plt.subplot(2,1,2)
+        plt.plot(races2,result22020.Points,'-o', color = "red" ,label = "2. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races2,result22020.Starting_Grid,'-o', color = "blue" ,label = "2. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races2)
+        plt.yticks(points2)
+        plt.show()
+
+if year == "2021":
+    
+    ask = input("Kaç Sürücünün Sonuçlarını Öğrenmek İstiyorsunuz (Maks 2) : ")
+    
+    if ask == "1":
+        
+        driver1 = input("Sürücü Adınızı Giriniz: ")
+        
+        result2021 = data2021[data2021.Driver == driver1]
+        
+        races3 = np.arange(1,23)
+        points3 = np.arange(0,27)
+
+
+        plt.plot(races3,result2021.Points,'-o', color = "red" ,label = "Yarış Sonuçları",linewidth=2)
+        plt.plot(races3,result2021.Starting_Grid,'-o', color = "blue" ,label = "Sıralama Sonuçları",linewidth=2)
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races3)
+        plt.yticks(points3)
+
+        plt.show()
+    if ask == "2":
+        
+        driver1 = input("1. Sürücünün Adınızı Giriniz: ")
+        driver2 = input("2. Sürücünün Adınızı Giriniz: ")
+        
+        result2021 = data2021[data2021.Driver == driver1]
+        result22021 = data2021[data2021.Driver == driver2]
+        
+        races3 = np.arange(1,23)
+        points3 = np.arange(0,27)
+
+        plt.subplot(2,1,1)
+        plt.plot(races3,result2021.Points,'-o', color = "red" ,label = "1. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races3,result2021.Starting_Grid,'-o', color = "blue" ,label = "1. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races3)
+        plt.yticks(points3)
+        plt.show()
+        
+        
+        plt.subplot(2,1,2)
+        plt.plot(races3,result22021.Points,'-o', color = "red" ,label = "2. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races3,result22021.Starting_Grid,'-o', color = "blue" ,label = "2. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races3)
+        plt.yticks(points3)
+        plt.show()
+        
+if year == "2022":
+    ask = input("Kaç Sürücünün Sonuçlarını Öğrenmek İstiyorsunuz (Maks 2) : ")
+    
+    if ask == "1":
+        
+        driver1 = input("Sürücü Adınızı Giriniz: ")
+        
+        result2022 = data2022[data2022.Driver == driver1]
+        
+        races4 = np.arange(1,14)
+        points4 = np.arange(0,27)
+
+
+        plt.plot(races4,result2022.Points,'-o', color = "red" ,label = "Yarış Sonuçları",linewidth=2)
+        plt.plot(races4,result2022.Starting_Grid,'-o', color = "blue" ,label = "Sıralama Sonuçları",linewidth=2)
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races4)
+        plt.yticks(points4)
+
+        plt.show()
+    if ask == "2":
+        
+        driver1 = input("1. Sürücünün Adınızı Giriniz: ")
+        driver2 = input("2. Sürücünün Adınızı Giriniz: ")
+        
+        result2022 = data2022[data2022.Driver == driver1]
+        result22022 = data2022[data2022.Driver == driver2]
+        
+        races4 = np.arange(1,14)
+        points4 = np.arange(0,27)
+
+        plt.subplot(2,1,1)
+        plt.plot(races4,result2022.Points,'-o', color = "red" ,label = "1. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races4,result2022.Starting_Grid,'-o', color = "blue" ,label = "1. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races4)
+        plt.yticks(points4)
+        plt.show()
+        
+        
+        plt.subplot(2,1,2)
+        plt.plot(races4,result22022.Points,'-o', color = "red" ,label = "2. Sürücü Yarış Sonuçları",linewidth=2)
+        plt.plot(races4,result22022.Starting_Grid,'-o', color = "blue" ,label = "2. Sürücü Sıralama Sonuçları",linewidth=2)
+        
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel("Yarışlar")
+        plt.ylabel("Yarış Sonuçları")
+
+        plt.xticks(races4)
+        plt.yticks(points4)
+        plt.show()
+
+else:
+    print("geçerli bir yıl giriniz !")
+
+
+    
+    
+    
+    
+        
+    
+    
+        
+        
+    
+
+
+
